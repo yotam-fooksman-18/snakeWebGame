@@ -1,0 +1,18 @@
+body{
+    justify-content:center;
+    align-items: center;
+    background-color:aqua;
+}
+.game-container{
+text-align:left;
+   color:rgb(0, 47, 255);
+}
+.header{
+text-align: center;
+   color:rgb(0, 47, 255);
+}
+
+#H1{
+text-align: center;
+   color:rgb(0, 47, 255);
+}
