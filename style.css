@@ -12,7 +12,12 @@ background: white;
 padding: 20px;
 border-radius: 20px;
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
-text_align: center;
+text-align: center;
+}
+#name{
+   color:#000000;
+   text-align:left;
+
 }
 #grid{
    width:50vh;
