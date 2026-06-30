@@ -1,60 +1,69 @@
+.header{
+    text-align: center;
+    color: darkgreen;
+}  
+
+
 body{
-   height: 100vh;
-    justify-content:center;
-    align-items: center;
-    background-color:rgb(255, 255, 255);
-    margin: 0 ;
-    font-family:sans-serif;
     display: flex;
+    justify-content:center;
+    height:100vh;
+    align-items:center;
+    background-color:rgb(27, 60, 120);
+    margin: 0;
+    font-family: sans-serif;
+    color:cyan;
 }
+
 .game-container{
-background: white;
-padding: 20px;
-border-radius: 20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-text-align: center;
+    text-align: center;
+    background: #011826;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 20px
 }
-#name{
-   color:#000000;
-   text-align:left;
 
-}
 #grid{
-   width:50vh;
-   height:50vh;
-   display:grid;
-   grid-template-columns: repeat(20,lfr);
-   margin: 20px auto;
-   background-color:#f8face;
-   border-color:rgb(0, 0, 0);
-   border: 4px solid #000000;
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    background:#059ed5;
+    border: 4px solid black;
+    margin: 20px auto;
 }
-#grid div {border: 1px solid #f1f5f9}
 
-.snake{background-color:darkblue; border-radius:2px;}
-.apple{background-color:crimson; border-radius:50%;}
-.controls{margin: 15px 0;}
-.arrow{
-   width: 60px;
-   height: 60px; 
-   font-size: 24px;
-   font-weight: bold;
-   margin: 4px; 
-   cursor:pointer;
-   background-color:#86efac; 
-   border: 2px solid #c70606; 
-   color: #166534;
-   border-radius: 12px;
-   transition: background 0.2s;
-   
+#grid div {
+    border:0.1px solid #000000;
 }
-.arrow:active{background: c70606;}
-#start-btn{
-   padding: 12px 30px;
-   background:#86efac;
-   color: white; 
-   border: none;
-   border-radius:8px;
-   font-size:18px;
-   cursor:pointer;
+
+
+.snake{background-color: #38e90c; border-radius: 2px;
+}
+
+.apple{background-color:crimson; border-radius: 50%;
+}
+
+.controls {margin: 15px 0;}
+.arrow {
+    width: 60px; 
+    height: 60px; 
+    font-size: 24px; 
+    font-weight: bold; 
+    margin: 4px; 
+    cursor: pointer;
+    background: #dcfce7;
+    border: 2px solid #86efac;
+    color: #166534;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+.arrow:active {background: #86efac; }
+#start-btn {padding: 12px 30px; 
+            background: #16a34a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer; 
 }
