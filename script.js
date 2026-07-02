@@ -69,14 +69,14 @@ squares[newHead].classList.add('snake');
  
 }
    document.addEventListener('touchstart', (e) => {
-    let touchStartx= e.changedTouches[0].screenX;
-     let touchStarty= e.changedTouches[0].screenY;
+    let touchStartX= e.changedTouches[0].screenX;
+     let touchStartY= e.changedTouches[0].screenY;
      handleSwipe();
     
 },false);
     document.addEventListener('touchend', (e) => {
-    let touchEndx= e.changedTouches[0].screenX;
-     let touchEndy= e.changedTouches[0].screenY;
+    let touchEndX= e.changedTouches[0].screenX;
+     let touchEndY= e.changedTouches[0].screenY;
      handleSwipe();
     
 },false);
