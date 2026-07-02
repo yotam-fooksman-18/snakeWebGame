@@ -71,7 +71,7 @@ squares[newHead].classList.add('snake');
    document.addEventListener('touchstart', (e) => {
     let touchStartX= e.changedTouches[0].screenX;
      let touchStartY= e.changedTouches[0].screenY;
-     handleSwipe();
+    
     
 },false);
     document.addEventListener('touchend', (e) => {
