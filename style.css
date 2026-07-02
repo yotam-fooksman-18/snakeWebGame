@@ -13,6 +13,7 @@ body{
     margin: 0;
     font-family: sans-serif;
     background-image: url('assets/background.png');
+    overflow:hidden;
 }
 #message{
      text-align: center;
