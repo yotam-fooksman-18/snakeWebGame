@@ -69,17 +69,14 @@ squares[newHead].classList.add('snake');
  
 }
    document.addEventListener('touchstart', (e) => {
-    let touchStartX= e.changedTouches[0].screenX;
-     let touchStartY= e.changedTouches[0].screenY;
-    
-    
-},false);
+        touchStartX= e.changedTouches[0].screenX;
+        touchStartY= e.changedTouches[0].screenY;
+    },false);
     document.addEventListener('touchend', (e) => {
-    let touchEndX= e.changedTouches[0].screenX;
-     let touchEndY= e.changedTouches[0].screenY;
-     handleSwipe();
-    
-},false);
+        touchEndX= e.changedTouches[0].screenX;
+        touchEndY= e.changedTouches[0].screenY;
+        handleSwipe(); 
+    },false);
 function startGame(){
         message.textContent= "";
     currentSnake.forEach(index => squares[index].classList.remove('snake'));
@@ -125,11 +122,11 @@ function handleSwipe(){
     const absDy = Math.abs(dy);
     if (Math.max(absDx,absDy)> 30){
         if(absDx > absDy){
-            if(dx>0)changeDir(-1);
-            elsechangeDir(1);
+            if(dx>0)changeDir(1);
+            else changeDir(-1);
         }else{
-                if(dy>0)changeDir(20);
-            elsechangeDir(-20);
+                if(dy>0)changeDir(25);
+            else changeDir(-25);
         }
     }
 }
