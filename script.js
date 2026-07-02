@@ -66,14 +66,20 @@ function move(){
 }
 currentSnake.unshift(newHead);
 squares[newHead].classList.add('snake');
-    document.addEventListener('touched', (e) => {
+ 
+}
+   document.addEventListener('touchstart', (e) => {
+    touchStartx= e.changedTouches[0].screenX;
+     touchStarty= e.changedTouches[0].screenY;
+     handleSwipe();
+    
+},false);
+    document.addEventListener('touchend', (e) => {
     touchEndx= e.changedTouches[0].screenX;
      touchEndy= e.changedTouches[0].screenY;
      handleSwipe();
     
 },false);
-}
-
 function startGame(){
         message.textContent= "";
     currentSnake.forEach(index => squares[index].classList.remove('snake'));
@@ -113,8 +119,8 @@ document.addEventListener('keydown', (e) => {
 });
 
 function handleSwipe(){
-    const dx = touchEndX - touchstartX;
-    const dy = touchEndY - touchstartY;
+    const dx = touchEndX - touchStartX;
+    const dy = touchEndY - touchStartY;
     const absDx = Math.abs(dx);
     const absDy = Math.abs(dy);
     if (Math.max(absDx,absDy)> 30){
