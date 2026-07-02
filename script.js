@@ -2,21 +2,22 @@ const grid=document.getElementById('grid');
 const message=document.getElementById('message');
 let squares = [];
 let currentSnake = [2, 1, 0];
-let direction = 20;
+let direction = 25;
 let appleIndex = 0;
 let score = 0;
 let timerId = 0;
-let intervalTime = 130;
+let fspeed = 150;
+let intervalTime = 150;
 let gameOn=false;
 const bgMusic = new Audio('assets/backgroundmusic.mp3');
 const eatSound = new Audio('assets/eatingsound.mp3');
 const gameoSound = new Audio('assets/gameoversound.mp3');
 const moveSound = new Audio('assets/movesound.mp3');
 bgMusic.loop = true;
-bgMusic.volume = 0.6;
+bgMusic.volume = 0.5;
 moveSound.volume = 0.2;
 function createBoard(){
-    for(let i=0; i<400; i++){
+    for(let i=0; i<625; i++){
         const square = document.createElement('div');
         grid.appendChild(square);
         squares.push(square);
@@ -30,12 +31,16 @@ function endGame() {
 
     return clearInterval(timerId);
 }
-
+function change_speed(){
+    intervalTime = fspeed - 4*score;
+    clearInterval(timerId);
+    timerId = setInterval(move,intervalTime);
+}
 function move(){
-    const hitBottom=(currentSnake[0]+20>=400 && direction === 20);
-    const hitTop = (currentSnake[0]-20<0 && direction === -20);
-    const hitRight = (currentSnake[0]%20 === 19 && direction === 1)
-    const hitLeft = (currentSnake[0]%20 === 0 && direction === -1)
+    const hitBottom=(currentSnake[0]+25>=625 && direction === 25);
+    const hitTop = (currentSnake[0]-25<0 && direction === -25);
+    const hitRight = (currentSnake[0]%25 === 24 && direction === 1)
+    const hitLeft = (currentSnake[0]%25 === 0 && direction === -1)
     const hitSelf = squares[currentSnake[0]+direction]?.classList.contains('snake');
     if (hitRight||hitBottom||hitTop|| hitLeft||hitSelf){
             message.textContent= "GAME OVER";
@@ -57,6 +62,7 @@ function move(){
         scoreDisplay.textContent = score;
 
         generateApple();
+        change_speed();
 }
 currentSnake.unshift(newHead);
 squares[newHead].classList.add('snake');
@@ -76,9 +82,10 @@ function startGame(){
     currentSnake = [2, 1, 0];
     scoreDisplay.textContent = score;
     direction = 1;   
-     
+     bgMusic.play();
     clearInterval(timerId);
-    timerId = setInterval(move,intervalTime);
+    change_speed()
+
     generateApple();
     //gameOn=true;
 }
@@ -98,8 +105,8 @@ moveSound.play();
     }
 }
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowUp'||e.key === 'w') changeDir(-20);
-    if (e.key === 'ArrowDown'||e.key === 's') changeDir (20);
+    if (e.key === 'ArrowUp'||e.key === 'w') changeDir(-25);
+    if (e.key === 'ArrowDown'||e.key === 's') changeDir (25);
     if (e.key === 'ArrowLeft'||e.key === 'a') changeDir (-1);
     if (e.key === 'ArrowRight'||e.key === 'd') changeDir (1); 
     
